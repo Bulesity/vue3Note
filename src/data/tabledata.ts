@@ -1,4 +1,4 @@
-exports.homeTableData = [
+const homeTableData = [
         {
           date: '2016-05-03',
           name: 'Tom',
@@ -19,4 +19,7 @@ exports.homeTableData = [
           name: 'Tom',
           address: 'No. 189, Grove St, Los Angeles',
         },
-      ]
+      ];
+module.exports = {
+  homeTableData
+}

@@ -1,61 +1,81 @@
 <template>
-    <!-- <div>Home通过路径传递params参数</div>
-    <div>{{ route.params.id }}</div>
-    <div>{{ route.params.name }}</div> -->
-    <div>   
-        <el-table :data="homeTableData" border style="width: 100%">
-            <el-table-column prop="date" label="Date" width="180" />
-            <el-table-column prop="name" label="Name" width="180" />
-            <el-table-column prop="address" label="Address" />
-        </el-table>
-        <div class="echart-view">
-           <div ref="pieDom"></div>
-           <div ref="barDom"></div>
-        </div>
-    </div>
-</template>
-<script setup>
-import { ref,onMounted } from 'vue';
-import { homeTableData } from '../../data/tabledata';
-import {homePieOption,homeBarOption} from '../../data/echartOptions'
-import  * as echarts from 'echarts';
-const pieDom = ref(null);
-const barDom = ref(null);
-onMounted(()=>{      
-    const pieEchart = echarts.init(pieDom.value);
-    const barEchart = echarts.init(barDom.value);
-    const pieOption = homePieOption;
-    const barOption = homeBarOption;
-    pieEchart.setOption(pieOption);
-    barEchart.setOption(barOption);
-});
-
-// const testObj = reactive({num:0,childObj:{num:0}})
-// function add(){
-//     testObj.num ++;
-// }
-// function addChild(){
-//     testObj.childObj.num ++;
-// }
-// function showNum(){
-//     console.log(testObj)
-// }
-// import { onMounted } from 'vue';
-// import {useRoute} from 'vue-router'
-// const route = useRoute()
-// onMounted(()=>{
+    <div class="common-layout">
+     <el-container>
+       <el-header>
+         <!-- <div>{{ store.count }}</div>
+         <div>{{ store.double }}</div>
+         <div>{{ store1.name }}</div> -->
+       </el-header>
+       <el-container>
+         <el-aside width="200px" style="background-color:#545c64;">
+           <el-menu
+         active-text-color="#ffd04b"
+         background-color="#545c64"
+         :collapse="isCollapse"
+         :router="true"     
+         class="el-menu-vertical-demo"
+         default-active="/"
+         text-color="#fff"
+         @open="handleOpen"
+         @close="handleClose"
+       >      
+         <el-menu-item index="/home/echart/myID/myName">
+           <el-icon><Picture /></el-icon>
+           <span>视图统计</span>
+         </el-menu-item>
+         <el-menu-item index="/home/about?id=cid&name=cname">
+           <el-icon><document /></el-icon>
+           <span>添加笔记</span>
+         </el-menu-item>
+         <el-menu-item index="/home/message" :route="{
+           path:'/home/message',
+           query:{title:'中将了',from:'App'}
+         }">
+           <el-icon><User /></el-icon>
+           <span>用户信息</span>
+         </el-menu-item>   
+         <el-menu-item index="/home/form">
+           <el-icon><document /></el-icon>
+           <span>印象表单</span>
+         </el-menu-item>  
+         </el-menu>
+         </el-aside>
+         <el-main>
+           <router-view></router-view>
+         </el-main>
+       </el-container>
+     </el-container>
+   </div>
+ </template>
+ 
+ <script setup>
+ import {ref} from 'vue'
+ // import { useCounterStore } from './stores/useCounterStore'
+ // import {useProductStore} from './stores/useProductStore'
+ // const store = useCounterStore();
+ // const store1 = useProductStore()
+ // store.count++
+ // store.increment();
+ //store.$reset(); 重置state
+ 
+ const isCollapse = ref(false);
+ function handleOpen(){
+ 
+ }
+ function handleClose(){
    
-// })
-
-</script>
-<style scoped>
-.echart-view{
-    display: flex;
-    width: 100%;
-    height: 50vh;
-    margin-top: 20px;
-}
-.echart-view>div{
-    flex: 1;
-}
-</style>
+ }
+ </script>
+ 
+ <style>
+ .el-container {
+     display: flex;
+     flex-direction: row;
+     flex: 1;
+     flex-basis: auto;
+     box-sizing: border-box;
+     min-width: 0;
+     height: 100vh;
+ }
+ </style>
+ 

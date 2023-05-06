@@ -13,11 +13,11 @@
         <div v-show="showUserInfo" class="container">        
             <div v-for="item in UserInfoList.value" 
                 :key="item.node_id" >
-                <UserInfoVue               
+                <UserInfo              
                 :user-name="item.login" 
                 :avatar-url="item.avatar_url"
                 @show-name="showName">
-                </UserInfoVue>
+                </UserInfo>
             </div>
         </div>      
     </div>
@@ -26,7 +26,7 @@
 import { computed, reactive,ref } from 'vue';
 import axios from 'axios';
 import { ElMessage } from 'element-plus'
-import UserInfoVue from '../../components/UserInfo.vue'
+import UserInfo from '@/components/UserInfo'
 const props = defineProps({
     title:String,
     from:String
@@ -62,11 +62,8 @@ $serch-input-width:50vh;
     display: flex;
     margin: auto;
 }
-.container{
-    margin-top:100px;  
-    height: 600px;
-    width: 100vh;
-    margin: auto;
+.container{ 
+    height: 600px; 
     /* 设置容器布局为grid布局 */
     display: grid;
         /* 指定每一行的宽度 每个宽度中间用空格隔开 */

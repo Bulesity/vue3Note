@@ -1,4 +1,4 @@
-exports.homePieOption = {
+const homePieOption = {
     title: {
     text: 'Referer of a Website',
     subtext: 'Fake Data',
@@ -33,7 +33,7 @@ series: [
     }
 ]
 };
-exports.homeBarOption =  {
+const homeBarOption =  {
     title: {
         text: 'Referer of a Website',
         subtext: 'Fake Data',
@@ -53,3 +53,7 @@ exports.homeBarOption =  {
       }
     ]
   };
+  module.exports = {
+    homePieOption,
+    homeBarOption
+  }
