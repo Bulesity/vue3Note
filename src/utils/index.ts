@@ -1,3 +1,6 @@
-exports.isNumber = function(value){
+ const isNumber = function(value:any){
     return !!Number(value)
+}
+module.exports = {
+    isNumber
 }
