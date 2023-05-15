@@ -5,6 +5,7 @@ import Form from '@/pages/form/index.vue'
 import Echart from '@/pages/echart/index.vue'
 import Login from '@/pages/login/index.vue'
 import Register from '@/pages/register/index.vue'
+import Test01 from '@/pages/test01/index.vue'
 export default [
     {
         path:'/',    
@@ -43,6 +44,10 @@ export default [
             {
                 path:'form',
                 component:Form
+            }, 
+            {
+                path:'test01',
+                component:Test01
             }, 
             {
                 path:'message',

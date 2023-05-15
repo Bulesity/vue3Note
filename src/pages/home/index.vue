@@ -38,6 +38,10 @@
            <el-icon><document /></el-icon>
            <span>印象表单</span>
          </el-menu-item>  
+         <el-menu-item index="/home/test01">
+           <el-icon><document /></el-icon>
+           <span>测试</span>
+         </el-menu-item>
          </el-menu>
          </el-aside>
          <el-main>
